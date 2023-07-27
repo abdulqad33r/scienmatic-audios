@@ -1,0 +1,144 @@
+header.navbar {
+  position: fixed;
+  width: 100%;
+  padding: 1.5rem 5.7rem;
+  --hamburger-padding-right: 0.7rem;
+  z-index: 100;
+  pointer-events: none;
+  nav {
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    padding-right: var(--hamburger-padding-right);
+  }
+  .nav__logo img {
+    width: 50px;
+    aspect-ratio: 1;
+  }
+
+  .nav__hamburger {
+    flex-direction: column;
+    gap: 3px;
+    cursor: pointer;
+    border: transparent;
+    background: transparent;
+    color: inherit;
+    font-size: 1.5rem;
+    z-index: 11;
+    pointer-events: initial;
+
+    .nav__hamburger--line {
+      width: 25px;
+      height: 4px;
+      background-color: var(--light);
+      border-radius: 100vw;
+      transition: all 0.5s;
+      transform-origin: center;
+    }
+  }
+  .nav__cross {
+    .nav__cross--line2 {
+      scale: 2.5;
+      rotate: 1turn;
+      opacity: 0;
+    }
+    .nav__cross--line1 {
+      transform: rotate(-225deg) translate(10px);
+    }
+    .nav__cross--line3 {
+      transform: rotate(-135deg) translate(10px);
+    }
+  }
+
+  aside.sidebar {
+    position: fixed;
+    padding: 2rem 1.65rem;
+    height: 100vh;
+    height: 100svh;
+    width: 420px;
+    max-width: 100%;
+    background-color: black;
+    right: 0;
+    top: 0;
+    z-index: 10;
+
+    & * {
+      pointer-events: initial;
+    }
+  }
+
+  .sidebar__menu {
+    overflow-y: auto;
+    height: 67%;
+    padding-block: 2rem;
+    margin-block: 2rem;
+  }
+  .sidebar__menu--items--item {
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin-bottom: 17px;
+    align-items: center;
+  }
+  .sidebar__menu--subItems {
+    overflow: hidden;
+  }
+  .sidebar__menu--subItems--item {
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    color: var(--sublink);
+    margin-bottom: 17px;
+    margin-left: 15px;
+    transition: color 500ms;
+
+    &:hover {
+      color: var(--light);
+    }
+  }
+  .signButtons {
+    font-weight: bolder;
+    font-size: 1.2rem;
+    margin-top: 1.2rem;
+  }
+  .sidebar__signBtn {
+    padding: 0.5rem 1rem;
+  }
+  .sidebar__signInBtn {
+    outline: 2px solid;
+    transition: all 0.5s ease;
+    margin-right: 1rem;
+
+    &:hover,
+    &:focus-visible {
+      outline-offset: -5px;
+      background-color: var(--light);
+      color: black;
+    }
+  }
+}
+
+@media screen and (max-width: 1184px) {
+  header.navbar {
+    padding: 0.5rem 1rem;
+    background-color: rgb(black, 0.7);
+    backdrop-filter: blur(10px);
+    --hamburger-padding-right: 0;
+    --icons-padding: 1.4rem;
+
+    .nav__mediaIconsList {
+      position: static;
+      display: flex;
+    }
+  }
+}
+
+@media screen and (max-width: 532px) {
+  header.navbar {
+    .nav__logo img {
+      width: 35px;
+    }
+    .nav__mediaIconsList {
+      display: none;
+    }
+  }
+}

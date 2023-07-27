@@ -1,0 +1,235 @@
+.hero {
+  min-height: 100vh;
+  min-height: 100svh;
+  width: 100%;
+  position: relative;
+  display: flex;
+
+  .hero__container {
+    padding-top: 10rem;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+  }
+
+  .hero__left {
+    &--text {
+      writing-mode: vertical-rl;
+      p {
+        rotate: -180deg;
+        font-size: 1.2rem;
+        font-style: italic;
+        span {
+          color: var(--light-green);
+          font-weight: bold;
+        }
+      }
+    }
+    &--img {
+      width: 400px;
+      margin-left: 0.5rem;
+
+      img {
+        width: 100%;
+      }
+    }
+  }
+
+  .hero__right {
+    margin-right: auto;
+  }
+  .hero__right--text {
+    h1 {
+      font-size: 2.25rem;
+      -webkit-text-stroke: 1px white;
+      color: transparent;
+    }
+  }
+  .hero__right__buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 3rem;
+
+    button {
+      width: max-content;
+      font-size: 1.1rem;
+      font-weight: bolder;
+      padding: 0.8rem 1.8rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      transition: all 0.5s ease-in-out;
+      &:hover,
+      &:focus-visible {
+        background-color: white;
+        color: black;
+      }
+      span {
+        display: flex;
+        align-items: center;
+      }
+    }
+    &--listenNow {
+      background-color: var(--light-green);
+      position: relative;
+
+      .btn-spanToAnimate {
+        background-color: inherit;
+        &::before,
+        &::after {
+          position: absolute;
+          content: "";
+          bottom: 0;
+          height: 100%;
+          width: 10px;
+          background-color: inherit;
+          border-radius: 100px;
+          z-index: -1;
+        }
+        &::before {
+          left: 40%;
+        }
+        &::after {
+          right: 20%;
+        }
+      }
+
+      &::before,
+      &::after {
+        position: absolute;
+        content: "";
+        bottom: 0;
+        height: 100%;
+        width: 10px;
+        background-color: inherit;
+        border-radius: 100px;
+        z-index: -1;
+      }
+      &::before {
+        left: 20%;
+      }
+      &::after {
+        right: 40%;
+      }
+
+      &--shake {
+        border-radius: 100px;
+        animation: shakebtn 100ms infinite alternate-reverse;
+
+        @keyframes shakebtn {
+          25% {
+            transform: translate(1px, 1px);
+          }
+          50% {
+            transform: translate(-1px, 1px);
+          }
+          75% {
+            transform: translate(-1px, -1px);
+          }
+        }
+        .btn-spanToAnimate {
+          &::before {
+            animation: shakepseudo 0.4s alternate-reverse infinite;
+          }
+          &::after {
+            animation: shakepseudo 0.7s alternate-reverse infinite;
+          }
+        }
+        &::before {
+          animation: shakepseudo 0.5s alternate-reverse infinite;
+        }
+        &::after {
+          animation: shakepseudo 1s alternate infinite;
+        }
+        @keyframes shakepseudo {
+          10%,
+          60%,
+          70%,
+          100% {
+            transform: translateY(-10px);
+          }
+          20% {
+            transform: translateY(-25px);
+          }
+          30% {
+            transform: translateY(-30px);
+          }
+          40%,
+          80% {
+            transform: translateY(-35px);
+          }
+          50%,
+          90% {
+            transform: translateY(-30px);
+          }
+        }
+      }
+    }
+    &--share {
+      border: 1px solid white;
+    }
+  }
+}
+
+.hero__background-image {
+  position: absolute;
+  background: url("/images/cover.jpg") no-repeat center;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+  filter: blur(5px) brightness(40%);
+  z-index: -1;
+  -webkit-mask-image: linear-gradient(to bottom, black 50%, transparent);
+  mask-image: linear-gradient(to bottom, black 50%, transparent);
+}
+
+@media screen and (max-width: 990px) {
+  .hero {
+    .hero__left,
+    .hero__right {
+      width: 100%;
+    }
+    .hero__container {
+      flex-wrap: wrap;
+    }
+    .hero__left {
+      &--img {
+        width: 100%;
+      }
+    }
+  }
+}
+@media screen and (max-width: 768px) {
+  .hero {
+    .hero__container {
+      flex-wrap: wrap;
+    }
+
+    .hero__left {
+      flex-direction: column-reverse;
+      &--text {
+        margin-top: 2rem;
+        writing-mode: horizontal-tb;
+        p {
+          rotate: 0deg;
+        }
+      }
+      &--img {
+        margin-left: 0;
+      }
+    }
+
+    .hero__right--text {
+      h1 {
+        font-size: 1.5rem;
+      }
+    }
+    .hero__right__buttons {
+      button {
+        font-size: 0.9rem;
+        padding: 0.6rem 1.5rem;
+      }
+    }
+  }
+}

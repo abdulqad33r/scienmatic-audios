@@ -1,0 +1,52 @@
+:root {
+  --light: #fdfdfd;
+  --gray: #383838;
+  --sublink: #c4c4c4;
+  --light-green: #4e997b;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background-color: rgb(10, 10, 10);
+}
+::-webkit-scrollbar-track:hover {
+  background-color: rgb(22, 19, 20);
+}
+::-webkit-scrollbar-thumb {
+  background-color: darkgrey;
+}
+
+body {
+  background: linear-gradient(rgba(22, 19, 20, 0.3), rgba(22, 19, 20, 0.3)),
+    url("/images/background-tile.webp") repeat;
+  color: var(--light);
+}
+
+.flex {
+  display: flex;
+}
+.wrap {
+  flex-wrap: wrap;
+}
+.container {
+  width: 75%;
+  max-width: 1100px;
+  margin: auto;
+}
+.italic {
+  font-style: italic;
+}
+@media screen and (max-width: 600px) {
+  .container {
+    width: 90%;
+  }
+}
+
+.loader {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}

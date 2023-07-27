@@ -1,0 +1,56 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+@font-face {
+  font-family: "Roboto";
+  font-weight: 400;
+  src: url("/fonts/roboto-regular-webfont.woff2") format("woff2"),
+    url("/fonts/roboto-regular-webfont.woff") format("woff");
+}
+@font-face {
+  font-family: "Roboto";
+  font-weight: 300;
+  src: url("/fonts/roboto-light-webfont.woff2") format("woff2"),
+    url("/fonts/roboto-light-webfont.woff") format("woff");
+}
+@font-face {
+  font-family: "Roboto";
+  font-weight: 900;
+  src: url("/fonts/roboto-black-webfont.woff2") format("woff2"),
+    url("/fonts/roboto-black-webfont.woff") format("woff");
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+ul {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+button {
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  color: inherit;
+}
+
+@media screen and (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

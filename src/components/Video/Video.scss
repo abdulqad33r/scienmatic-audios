@@ -1,0 +1,14 @@
+.videos__heading {
+  font-size: 2.5rem;
+  margin-block: 3rem;
+}
+.video {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+}
+@media screen and (max-width: 768px) {
+  .videos__heading {
+    font-size: 2rem;
+    margin-block: 2rem;
+  }
+}
